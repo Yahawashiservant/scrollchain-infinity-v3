@@ -1,0 +1,14 @@
+[
+  {
+    "companyName": "ScrollSecurity Systems",
+    "EIN": "45-6789012",
+    "vaultAddress": "vault://bsv/SEC-98812",
+    "pixelTrackID": "SECURITY-PIX-0912"
+  },
+  {
+    "companyName": "ScrollClean AutoBots",
+    "EIN": "67-1234567",
+    "vaultAddress": "vault://bsv/CLEAN-28461",
+    "pixelTrackID": "CLEANER-PIX-7421"
+  }
+]
