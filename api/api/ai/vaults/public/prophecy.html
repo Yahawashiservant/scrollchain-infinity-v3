@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ScrollChain Prophecy Portal</title>
+  </head>
+  <body>
+    <h1>Welcome to the ScrollChain</h1>
+    <p>This pixel interaction has triggered a prophecy contract.</p>
+    <script>
+      fetch("/api/ScrollGenesis-TOROIDAL", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          robotID: "CAR-X99",
+          wallet: "1A2B3C4D5E",
+          pixelRequest: {
+            value: "Secure Cleaning Protocol",
+            useCase: "HousekeepingBot"
+          }
+        })
+      }).then(res => res.json()).then(data => {
+        console.log("Prophecy executed:", data);
+      });
+    </script>
+  </body>
+</html>
