@@ -16,3 +16,8 @@ export async function updateScrollVault(wallet, pixel, brain) {
     timestamp: new Date().toISOString()
   };
 }
+import vaultRegistry from '../vaults/EIN-VaultRegistry.js';
+
+export function matchVaultByPixel(pixelID) {
+  return vaultRegistry.find(v => v.pixelTrackID === pixelID);
+}
