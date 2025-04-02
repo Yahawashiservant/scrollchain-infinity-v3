@@ -28,3 +28,6 @@ export default async function ScrollCommandCenter(req, res) {
     kingdom: "ScrollChain Eternal Grid"
   });
 }
+import { matchVaultByPixel } from './scrollcore';
+
+const vault = matchVaultByPixel(pixel.pixelID);
