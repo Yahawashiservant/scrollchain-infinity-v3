@@ -1,0 +1,28 @@
+name: Auto IP Mint Sync
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'scrolls/**'
+      - 'kingdom/**'
+      - 'api/**'
+      - 'pages/**'
+
+jobs:
+  mint-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Trigger IP Mint
+        run: |
+          curl -X POST https://scrollchainai.app.n8n.cloud/webhook/ipmint \
+          -H "Content-Type: application/json" \
+          -d '{
+                "command": "Mint IP Scroll",
+                "repo": "scrollchain-infinity-v3",
+                "author": "Yahawashiservant",
+                "vault": "bsv-mint-vault-1"
+              }'
