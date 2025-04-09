@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scrollchain Infinity — LP Access Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #111;
+      color: #fff;
+    }
+    header {
+      text-align: center;
+      padding: 4em 2em;
+      background: linear-gradient(to right, #141E30, #243B55);
+    }
+    .cta-btn {
+      display: inline-block;
+      background: #00ffae;
+      color: #111;
+      padding: 1em 2em;
+      margin-top: 1em;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    .video-section, .form-section, .schedule {
+      padding: 3em;
+      max-width: 800px;
+      margin: auto;
+    }
+    input, select, textarea {
+      width: 100%;
+      margin: 0.5em 0;
+      padding: 0.75em;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background: #00ffae;
+      color: #111;
+      font-weight: bold;
+      padding: 1em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 2em;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Scrollchain Infinity</h1>
+    <p>Capital Intelligence for Institutional Scale</p>
+    <a href="scrollchain-exec-summary.pdf" target="_blank" class="cta-btn">Download Executive Summary</a>
+  </header>
+
+  <section class="video-section">
+    <h2>Investor Overview Video</h2>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+      title="Scrollchain Infinity Overview" frameborder="0" allowfullscreen></iframe>
+  </section>
+
+  <section class="form-section">
+    <h2>Apply for Tier 1 Vault Access</h2>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="text" name="firm" placeholder="Firm / Family Office" />
+      <select name="aum">
+        <option value="">AUM Range</option>
+        <option value="<100M">&lt; $100M</option>
+        <option value="100-500M">$100M – $500M</option>
+        <option value="500M-1B">$500M – $1B</option>
+        <option value="1B+">&gt; $1B</option>
+      </select>
+      <label>Interest Areas:</label><br/>
+      <input type="checkbox" name="interest" value="Media"/> Media
+      <input type="checkbox" name="interest" value="AI"/> AI
+      <input type="checkbox" name="interest" value="Tokenization"/> Tokenization
+      <input type="checkbox" name="interest" value="Infrastructure"/> Infrastructure
+      <br/><br/>
+      <textarea name="message" placeholder="Tell us more..." rows="5"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <section class="schedule">
+    <h2>Schedule a Capital Call</h2>
+    <iframe src="https://calendly.com/YOUR_USERNAME/30min" width="100%" height="600" frameborder="0"></iframe>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Scrollchain Infinity Syndicate. All rights reserved.</p>
+  </footer>
+</body>
+</html>
