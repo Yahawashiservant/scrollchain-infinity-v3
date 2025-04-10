@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scrollchain Infinity Kingdom</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #111;
+      color: #fff;
+    }
+    header {
+      text-align: center;
+      padding: 4em 2em;
+      background: linear-gradient(to right, #141E30, #243B55);
+    }
+    .cta-btn {
+      display: inline-block;
+      background: #00ffae;
+      color: #111;
+      padding: 1em 2em;
+      margin-top: 1em;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    section {
+      padding: 3em;
+      max-width: 800px;
+      margin: auto;
+    }
+    .form-section input, select, textarea {
+      width: 100%;
+      margin: 0.5em 0;
+      padding: 0.75em;
+      font-size: 1em;
+      border-radius: 5px;
+      border: none;
+    }
+    .form-section button {
+      background: #00ffae;
+      color: #111;
+      font-weight: bold;
+      padding: 1em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 2em;
+      background: #000;
+    }
+    .pei-section {
+      background: #1e1e1e;
+      padding: 3em;
+      border-left: 5px solid #00ffae;
+    }
+    .pei-section h2 {
+      color: #00ffae;
+    }
+    #scrollbot-widget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+    #scrollbot-icon {
+      background: #00ffae;
+      color: #111;
+      font-size: 28px;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ffae;
+    }
+    #scrollbot-modal {
+      display: none;
+      background: #1e1e1e;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 260px;
+      position: absolute;
+      bottom: 70px;
+      right: 0;
+      box-shadow: 0 0 10px #00ffae;
+    }
+    #scrollbot-modal button {
+      background: #00ffae;
+      color: #000;
+      border: none;
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      cursor: pointer;
+    }
+    .wallet-connect {
+      margin-top: 1em;
+      background: #00ffae;
+      color: #000;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Scrollchain Infinity</h1>
+    <p>Web3 Capital Intelligence Portal</p>
+    <button class="wallet-connect" onclick="connectWallet()">Connect Wallet</button>
+    <div id="wallet-address"></div>
+    <a href="scrollchain-exec-summary.pdf" class="cta-btn">Executive Summary</a>
+    <a href="scrollchain-pei-deck.pdf" class="cta-btn">PEI Deck</a>
+  </header>
+
+  <section class="video-section">
+    <h2>Scrollchain Overview</h2>
+    <video width="100%" controls autoplay muted loop>
+      <source src="scrollchain-overview.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <section class="pei-section">
+    <h2>Private Equity Infrastructure (PEI)</h2>
+    <ul>
+      <li><strong>Energy Vaults:</strong> Waste-to-Gas Infrastructure</li>
+      <li><strong>LP Yield:</strong> Tokenized cashflow + NFTs</li>
+      <li><strong>Governance:</strong> Tiered LP voting & control</li>
+    </ul>
+  </section>
+
+  <section class="form-section">
+    <h2>Vault Access Form</h2>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <select name="tier">
+        <option value="">Select Tier</option>
+        <option value="1">Tier 1 — Institutional</option>
+        <option value="2">Tier 2 — Mid Market</option>
+        <option value="3">Tier 3 — Builder</option>
+      </select>
+      <textarea name="message" placeholder="Tell us more..." rows="5"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <section id="mint-preview">
+    <h2>VaultToken Mint Preview</h2>
+    <p>Mint NFTs representing your vault access level and token yield rights.</p>
+    <button class="wallet-connect" onclick="alert('Mint UI coming soon...')">Preview Mint</button>
+  </section>
+
+  <section id="smart-contract">
+    <h2>Smart Contract Viewer</h2>
+    <iframe src="https://etherscan.io/address/0x0000000000000000000000000000000000000000#code" width="100%" height="400px"></iframe>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Scrollchain Infinity Kingdom</p>
+  </footer>
+
+  <div id="scrollbot-widget">
+    <div id="scrollbot-icon" onclick="toggleScrollbot()">🤖</div>
+    <div id="scrollbot-modal">
+      <h3>ScrollBot Assistant</h3>
+      <p>Need help?</p>
+      <button onclick="alert('Tier Info: Tier 1 - Institutional, Tier 2 - Mid Market, Tier 3 - Builder')">LP Tiers</button>
+      <button onclick="alert('PEI converts waste to gas for tokenized yield.')">PEI Info</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleScrollbot() {
+      const modal = document.getElementById('scrollbot-modal');
+      modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+    }
+
+    async function connectWallet() {
+      if (typeof window.ethereum !== 'undefined') {
+        try {
+          const provider = new ethers.providers.Web3Provider(window.ethereum);
+          await provider.send("eth_requestAccounts", []);
+          const signer = provider.getSigner();
+          const address = await signer.getAddress();
+          document.getElementById("wallet-address").innerText = `Connected: ${address}`;
+        } catch (err) {
+          alert("Wallet connection failed.");
+        }
+      } else {
+        alert("MetaMask not detected.");
+      }
+    }
+  </script>
+
+</body>
+</html>
