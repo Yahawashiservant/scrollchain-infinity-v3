@@ -2,6 +2,91 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Scrollchain Kingdom V2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-950 text-white min-h-screen font-sans">
+
+<!-- HEADER -->
+<header class="bg-black text-center py-6 shadow-lg border-b border-green-500">
+  <h1 class="text-3xl text-green-400 font-bold">Scrollchain Kingdom — V2 Sovereign Engine</h1>
+  <p class="text-sm text-green-300">Elect Node: 0001 | VaultStatus: ONLINE | Tier: Crown</p>
+</header>
+
+<!-- LP ONBOARDING PANEL -->
+<section class="max-w-3xl mx-auto p-6 mt-10 bg-zinc-900 rounded-xl shadow border border-green-700">
+  <h2 class="text-2xl font-bold mb-4 text-green-400">LP Onboarding Panel</h2>
+  <input class="w-full p-3 mb-3 rounded bg-zinc-800 border border-green-500" placeholder="Name or Fund" />
+  <input class="w-full p-3 mb-3 rounded bg-zinc-800 border border-green-500" placeholder="Email" />
+  <select class="w-full p-3 mb-4 rounded bg-zinc-800 border border-green-500">
+    <option>Tier 1 (LP)</option>
+    <option>Tier 2 (Syndicate)</option>
+    <option>Tier 3 (Builder)</option>
+    <option>CROWN (Elect)</option>
+  </select>
+  <button onclick="registerLP()" class="bg-green-400 text-black font-bold px-6 py-2 rounded shadow">Register LP</button>
+  <div id="lpLog" class="mt-4 text-sm text-green-300"></div>
+</section>
+
+<!-- VAULT PANEL -->
+<section class="max-w-3xl mx-auto p-6 mt-10 bg-zinc-900 rounded-xl shadow border border-green-700">
+  <h2 class="text-2xl font-bold mb-4 text-green-400">Vault Intelligence</h2>
+  <p class="mb-2">Circulating SCVA: <span id="circulating">144,000</span></p>
+  <p class="mb-4">Claimable: <span id="claimable">1,440</span></p>
+  <button onclick="claimYield()" class="bg-green-400 text-black font-bold px-6 py-2 rounded shadow">Claim Yield</button>
+</section>
+
+<!-- SCROLLBOT AI COMMANDER -->
+<section class="max-w-3xl mx-auto p-6 mt-10 bg-zinc-900 rounded-xl shadow border border-green-700">
+  <h2 class="text-2xl font-bold mb-4 text-green-400">ScrollBot Commander</h2>
+  <input id="scrollCommand" class="w-full p-3 mb-3 rounded bg-zinc-800 border border-green-500" placeholder="Give command..." />
+  <button onclick="runScrollBot()" class="bg-green-400 text-black font-bold px-6 py-2 rounded shadow">Execute</button>
+  <div id="scrollLog" class="mt-4 text-sm text-green-300"></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center text-green-600 text-sm mt-20 p-6 border-t border-green-600">
+  Scrollchain Infinity — Sovereign Engine | Crown Issued | Phase II Executing
+</footer>
+
+<script>
+  const vault = {
+    circulating: 144000,
+    claimable: 1440
+  }
+
+  function claimYield() {
+    vault.claimable = 0;
+    document.getElementById("claimable").innerText = vault.claimable;
+    speak("Yield claimed. SCVA token issued to vault.");
+  }
+
+  function registerLP() {
+    const log = document.getElementById("lpLog");
+    log.innerText = "LP Registered: Vault access granted. Sovereign onboarding confirmed.";
+    speak("New LP registered in Scrollchain.");
+  }
+
+  function runScrollBot() {
+    const input = document.getElementById("scrollCommand").value;
+    const output = `ScrollBot executing: ${input}`;
+    document.getElementById("scrollLog").innerText = output;
+    speak(output);
+  }
+
+  function speak(msg) {
+    const utterance = new SpeechSynthesisUtterance(msg);
+    speechSynthesis.speak(utterance);
+  }
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Scrollchain Infinity — LP Access Portal</title>
   <style>
