@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DARK MODE — Auto with toggle */
+@layer base {
+  html.dark {
+    background-color: #0c0c0c;
+    color: #f1f1f1;
+  }
+  html.light {
+    background-color: #f5f5f5;
+    color: #111;
+  }
+}
+
+/* SCROLLCHAIN STYLE SYSTEM */
+.section-glow {
+  @apply rounded-xl border border-green-600 p-6 bg-zinc-900 shadow-lg transition-all duration-300;
+}
+
+.btn-glow {
+  @apply bg-green-400 text-black font-bold px-6 py-2 rounded shadow-md hover:scale-105;
+  box-shadow: 0 0 12px #00ffaa88;
+}
+
+.glow-text {
+  text-shadow: 0 0 8px #00ffaa88;
+}
+
+/* NFT ANIMATION */
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 5px #00ffaa33; }
+  50% { box-shadow: 0 0 25px #00ffaa88; }
+  100% { box-shadow: 0 0 5px #00ffaa33; }
+}
+
+.nft-frame {
+  @apply border border-green-400 rounded-lg p-3 transition;
+  animation: pulseGlow 3s ease-in-out infinite;
+}
