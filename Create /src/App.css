@@ -39,3 +39,25 @@
   @apply border border-green-400 rounded-lg p-3 transition;
   animation: pulseGlow 3s ease-in-out infinite;
 }
+.vault-card-glow {
+  background-color: #111;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px #00ffaa22;
+  border: 1px solid #00ffaa55;
+  transition: all 0.3s ease-in-out;
+}
+.vault-card-glow:hover {
+  box-shadow: 0 0 30px #00ffaaee;
+}
+.vault-card-glow {
+  background-color: #111;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px #00ffaa22;
+  border: 1px solid #00ffaa55;
+  transition: all 0.3s ease-in-out;
+}
+.vault-card-glow:hover {
+  box-shadow: 0 0 30px #00ffaaee;
+}
