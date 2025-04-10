@@ -1,0 +1,138 @@
+/* ===================== */
+/* SCROLLCHAIN CROWN CSS */
+/* ===================== */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  background: #0c0c0c;
+  color: #fff;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  color: #00ffae;
+  text-shadow: 0 0 6px #00ffae80;
+}
+
+header {
+  background: linear-gradient(to right, #111111, #1a1a1a);
+  padding: 4em 2em;
+  text-align: center;
+  border-bottom: 3px solid #00ffae33;
+  box-shadow: 0 0 20px #00ffae33;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: linear-gradient(145deg, #00ffae, #11ffaa);
+  color: #000;
+  font-weight: bold;
+  padding: 1em 2em;
+  margin: 1em;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 0 12px #00ffae88;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 24px #00ffaecc;
+}
+
+section {
+  padding: 4em 2em;
+  max-width: 900px;
+  margin: auto;
+  background: radial-gradient(circle at center, #121212 0%, #0c0c0c 100%);
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00ffae22;
+  margin-top: 3em;
+}
+
+select, input, textarea, button {
+  font-size: 1em;
+  margin-top: 1em;
+  padding: 1em;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: #1e1e1e;
+  color: #fff;
+  box-shadow: inset 0 0 8px #00ffae33;
+}
+
+button {
+  background: linear-gradient(to right, #00ffae, #09e2ff);
+  color: #000;
+  font-weight: bold;
+  box-shadow: 0 0 10px #00ffae99;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(to right, #00ffaa, #00ffff);
+  box-shadow: 0 0 20px #00ffaecc;
+  transform: translateY(-2px);
+}
+
+footer {
+  text-align: center;
+  padding: 3em 2em;
+  background: #000;
+  color: #888;
+  font-size: 0.9em;
+  border-top: 2px solid #00ffae22;
+}
+
+.scrollbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 64px;
+  height: 64px;
+  background: radial-gradient(circle, #00ffae 10%, #00ffaa 70%);
+  border-radius: 50%;
+  font-size: 2em;
+  text-align: center;
+  line-height: 64px;
+  color: #000;
+  box-shadow: 0 0 20px #00ffae88;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.scrollbot:hover {
+  box-shadow: 0 0 30px #00ffae;
+  transform: scale(1.1);
+}
+
+.video-section video {
+  border-radius: 10px;
+  box-shadow: 0 0 15px #00ffae33;
+  margin-top: 2em;
+}
+
+#mint-preview, #smart-contract {
+  background: #101010;
+  border-left: 5px solid #00ffae;
+  padding: 2em;
+  margin-top: 3em;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #00ffae22;
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    padding: 2em 1em;
+  }
+  .cta-btn {
+    padding: 0.75em 1.5em;
+    font-size: 1em;
+  }
+}
