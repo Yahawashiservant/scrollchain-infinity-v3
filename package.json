@@ -1,6 +1,8 @@
 {
-  "name": "scrollchain-infinity-v3",
+  "name": "scrollchain",
   "version": "1.0.0",
+  "description": "Scrollchain Kingdom - Frontend UI",
+  "main": "index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
