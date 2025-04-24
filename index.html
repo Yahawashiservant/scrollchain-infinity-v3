@@ -2,6 +2,130 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Scrollchain Kingdom - Crown Protocol Terminal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+</head>
+
+<body>
+  <div class="dominion-badge">Dominion Mode Active</div>
+
+  <header>
+    <h1>Scrollchain × ScrollBot Terminal</h1>
+    <div class="system-status">Crown Protocol Active | Dominion Mode Enabled</div>
+
+    <div class="header-stats">
+      <div class="stat"><div class="number" id="vaults-count">0</div><div class="label">Vaults</div></div>
+      <div class="stat"><div class="number" id="tx-count">0</div><div class="label">Transactions</div></div>
+      <div class="stat"><div class="number" id="tier-score">0</div><div class="label">Crown Score</div></div>
+    </div>
+  </header>
+
+  <main>
+    <div id="system-status" class="crown-intelligence-panel">
+      <div class="crown-panel-header">
+        <div class="crown-status">
+          <div class="crown-active-indicator"></div>
+          <div class="crown-status-text">Crown Protocol Intelligence</div>
+        </div>
+        <div class="crown-controls">
+          <button class="crown-action-btn" id="refresh-status">Refresh Status</button>
+          <button class="crown-action-btn mint-glow" id="mint-vault">Mint Vault</button>
+        </div>
+      </div>
+      <div class="crown-panel-body">
+        <div class="metrics-grid">
+          <div class="metric-card"><h3>DSPy Status</h3><div class="metric-value" id="dspy-status">Online</div><div class="metric-label">AI Intelligence</div></div>
+          <div class="metric-card"><h3>Dominion Mode</h3><div class="metric-value dominion-active">ACTIVE</div><div class="metric-label">Crown Override</div></div>
+          <div class="metric-card"><h3>Wallet Status</h3><div class="metric-value" id="wallet-status">Disconnected</div><div class="metric-label">LP Connection</div></div>
+          <div class="metric-card"><h3>Vault Score</h3><div class="metric-value" id="vault-score">--</div><div class="metric-label">Crown Intelligence</div></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="form-section">
+      <h2>Divine Vault Form</h2>
+      <form id="vaultForm">
+        <div class="form-group"><label for="wallet">Wallet Address</label><input type="text" id="wallet" placeholder="0x..." required /></div>
+        <div class="form-group"><label for="email">Email</label><input type="email" id="email" placeholder="lp@example.com" required /></div>
+        <div class="form-group"><label for="tier">Tier Level</label>
+          <select id="tier" required>
+            <option value="">Select Tier</option>
+            <option value="CROWN">CROWN</option>
+            <option value="GOVERNOR">GOVERNOR</option>
+            <option value="BUILDER">BUILDER</option>
+            <option value="PROPHET">PROPHET</option>
+          </select>
+        </div>
+        <div class="form-group"><label for="notes">LP Notes / Bio</label><textarea id="notes" placeholder="Enter funding details..." required rows="4"></textarea></div>
+        <button type="submit" class="btn-glow">Process via DSPy Intelligence</button>
+      </form>
+      <div class="log" id="log">Waiting for command...</div>
+    </section>
+
+    <section>
+      <h2>Vault Access Verification</h2>
+      <div class="form-group">
+        <label for="accessWallet">LP Wallet Address</label>
+        <input type="text" id="accessWallet" placeholder="Enter wallet for access check" />
+        <button onclick="checkVaultAccess()" class="crown-action-btn">Verify Vault Access</button>
+      </div>
+      <div class="log" id="vaultResult">Vault status: Awaiting verification</div>
+    </section>
+
+    <div class="crown-command-console" id="commandConsole">
+      <div class="console-header">
+        <h3>Crown Protocol Command Terminal</h3>
+        <div class="console-controls">
+          <button class="console-btn" id="clearConsole">Clear</button>
+          <button class="console-btn" id="expandConsole">Expand</button>
+        </div>
+      </div>
+      <div class="console-output" id="consoleOutput">
+        > Crown Protocol Terminal initialized<br/>
+        > Dominion Mode engaged<br/>
+        > Awaiting sovereign commands...
+      </div>
+      <div class="console-input-area">
+        <span class="console-prompt">crown></span>
+        <input type="text" class="console-input" id="crownCommand" placeholder="Enter Crown Command" onkeydown="if(event.key==='Enter') executeCrownCommand()">
+      </div>
+    </div>
+
+    <nav class="dashboard-nav">
+      <a href="/vault-intelligence-panel.html" class="nav-item">Vault Intelligence</a>
+      <a href="/dominion-console.html" class="nav-item">Dominion Console</a>
+      <a href="/left-hand-console.html" class="nav-item">Left-Hand Console</a>
+      <a href="/pei-treasury-console.html" class="nav-item">Treasury Console</a>
+      <a href="/cid-memory-viewer.html" class="nav-item">Memory Viewer</a>
+    </nav>
+  </main>
+
+  <footer>
+    <p>Scrollchain Kingdom &copy; 2025 | Crown Protocol v2.0 | DSPy Intelligence Active</p>
+  </footer>
+
+  <div id="scrollbot-bubble" class="scrollbot-bubble hidden">Waiting for command...</div>
+
+  <div class="dspy-status" id="dspyStatusWidget">
+    <div class="dspy-status-icon"><span class="dspy-active"></span></div>
+    <div class="dspy-status-info">
+      <div class="dspy-primary">DSPy Intelligence</div>
+      <div class="dspy-secondary">Crown Protocol Active</div>
+    </div>
+  </div>
+
+  <!-- HERE'S THE FIXED LINE FOR SCRIPT CONNECTION -->
+  <script src="script.js"></script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
   <title>Scrollchain Kingdom Interface</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
